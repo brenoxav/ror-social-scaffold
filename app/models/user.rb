@@ -13,7 +13,6 @@ class User < ApplicationRecord
   has_many :submitted_friendships, foreign_key: 'submitter_id', class_name: 'Friendship'
   has_many :received_friendships, foreign_key: 'receiver_id', class_name: 'Friendship'
 
-  # Return an array with all confirmed friends (submitted and received)
   def friends
     s = submitted_friendships.map { |f| f.receiver if f.status }
     r = received_friendships.map { |f| f.submitter if f.status }

@@ -20,8 +20,7 @@ module ApplicationHelper
   def add_friend_btn(receiver)
     submitter = User.find(current_user.id)
     if submitter == receiver
-      button_to "You", user_path(submitter.id), method: :get
-
+      button_to "You", user_path(submitter.id), method: :get, disabled: true
     elsif submitter.friend?(receiver)
       button_to "Unfriend", friendship_path(1), method: :delete, params: { submitter_id: submitter.id, receiver_id: receiver.id }
     elsif submitter.pending_submissions.select{ |s| s.receiver == receiver }.any?
