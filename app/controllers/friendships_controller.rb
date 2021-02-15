@@ -21,7 +21,9 @@ class FriendshipsController < ApplicationController
 
   def destroy
     friendships = submitter.friendships.select do |f|
-      (submitter.id == f.receiver_id) || (receiver.id == f.receiver_id)
+      s = (submitter.id == f.submitter_id) && (receiver.id == f.receiver_id)
+      r = (submitter.id == f.receiver_id) && (receiver.id == f.submitter_id)
+      s || r
     end
     if friendships
       friendships.each { |f| f.destroy }
