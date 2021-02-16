@@ -26,15 +26,15 @@ class User < ApplicationRecord
   end
 
   def pending_submissions
-    submitted_friendships.select { |f| f.submitter if !f.status }
+    submitted_friendships.select { |f| f.submitter unless f.status }
   end
 
   def pending_receipts
-    received_friendships.select { |f| f.receiver if !f.status }
+    received_friendships.select { |f| f.receiver unless f.status }
   end
 
   def confirm_friend(submitter)
-    friendship = received_friendships.find{ |f| f.submitter == submitter }
+    friendship = received_friendships.find { |f| f.submitter == submitter }
     friendship.status = true
     friendship.save
   end

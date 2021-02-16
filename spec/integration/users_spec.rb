@@ -1,7 +1,6 @@
 require 'rails_helper'
 
 RSpec.describe 'Users >', type: :feature do
-
   let(:user_a) { User.new(name: 'Mohammed', email: 'mohammed@email.com', password: 'qwerty') }
   let(:user_b) { User.new(name: 'Jesus', email: 'jesus@email.com', password: 'qwerty') }
 
@@ -22,7 +21,7 @@ RSpec.describe 'Users >', type: :feature do
   end
 
   feature 'Sign up >' do
-    scenario "Sign up with valid information" do
+    scenario 'Sign up with valid information' do
       sign_up(user_a)
 
       expect(page).to have_content('Welcome! You have signed up successfully.')
@@ -30,7 +29,7 @@ RSpec.describe 'Users >', type: :feature do
   end
 
   feature 'Sign in >' do
-    scenario "Sign in with valid credentials" do
+    scenario 'Sign in with valid credentials' do
       sign_up(user_a)
       click_on 'Sign out'
       log_in(user_a)
@@ -38,7 +37,7 @@ RSpec.describe 'Users >', type: :feature do
       expect(page).to have_content('Signed in successfully.')
     end
 
-    scenario "Try to Sign in with invalid credentials" do
+    scenario 'Try to Sign in with invalid credentials' do
       visit new_user_session_path
       fill_in 'Email', with: 'not_a_user@email.com'
       fill_in 'Password', with: 'h@ck3r'
@@ -47,5 +46,4 @@ RSpec.describe 'Users >', type: :feature do
       expect(page).to have_content('Invalid Email or password.')
     end
   end
-
 end

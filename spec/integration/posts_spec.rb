@@ -1,11 +1,12 @@
 require 'rails_helper'
 
 RSpec.describe 'Posts >', type: :feature do
-
   let(:user_a) { User.new(name: 'Mohammed', email: 'mohammed@email.com', password: 'qwerty') }
   let(:user_b) { User.new(name: 'Jesus', email: 'jesus@email.com', password: 'qwerty') }
-  let(:post) { Post.new(content: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, 
-              sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.') }
+  let(:post) do
+    Post.new(content: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit,
+              sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.')
+  end
 
   def sign_up(user)
     visit new_user_registration_path
@@ -27,5 +28,4 @@ RSpec.describe 'Posts >', type: :feature do
       expect(page).to have_content('Post was successfully created.')
     end
   end
-
 end
