@@ -16,6 +16,10 @@ It's main features include:
 - Devise
 - PostgreSQL
 
+## Live Demo
+
+[Take a look at a live demo of this app](https://stay-in-touch-social.herokuapp.com/)
+
 ## Getting Started
 
 To get a local copy up and running follow these steps:
