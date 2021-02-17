@@ -3,6 +3,10 @@
     <div class='post-attribution' >
       <%= link_to post.user.name, user_path(post.user), class: 'post-author' %>
     </div>
+    <div class='post-statistics'>
+      <span class='post-comment-count'> <%= post.comments.count %> comments | </span>
+      <span class='post-like-count'> <%= post.likes.count %> people like this</span>
+    </div>
     <div class='post-liking'>
       <span class='post-date'> <%= post.created_at.strftime("%Y/%m/%d") %> </span>
       <%= like_or_dislike_btn(post) %>
