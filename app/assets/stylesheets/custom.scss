@@ -1,9 +1,10 @@
 @import url("https://fonts.googleapis.com/css?family=Roboto:400,700,900&display=swap");
 
-$primary-color-dark: #689f38;
-$primary-color: #8bc34a;
-$primary-color-light: #dcedc8;
+$primary-color-dark: #042e4e;
+$primary-color: #0967ae;
+$primary-color-light: #b1dbfb;
 $primary-color-text: #212121;
+$secondary-color: #f2a602;
 $divider-color: #bdbdbd;
 
 * {
@@ -57,13 +58,18 @@ a {
   }
 
   .menu {
-    width: 80%;
+    width: 70%;
     justify-content: space-between;
 
     .menu-item {
       float: left;
       margin: 0 15px;
     }
+  }
+
+  .username-nav {
+    font-weight: 700;
+    color: $secondary-color;
   }
 }
 
@@ -157,7 +163,7 @@ form {
     }
 
     input[type="checkbox"] {
-      width: fit-content;
+      width: auto;
     }
   }
 
@@ -232,7 +238,7 @@ form {
     float: right;
 
     a {
-      color: $primary-color-dark;
+      color: $secondary-color;
       font-weight: bold;
       font-size: 0.9em;
       margin: 0 4px;
@@ -273,6 +279,11 @@ form {
       }
     }
   }
+
+  .post-statistics {
+    text-align: right;
+    color: $primary-color;
+  }
 }
 
 .users-section {
@@ -289,6 +300,13 @@ form {
     font-size: 0.8em;
     margin: 0 0 8px 0;
     color: $primary-color-dark;
+  }
+
+  .user-card {
+    margin-bottom: 16px;
+    padding: 12px;
+    border: 1px solid $primary-color-dark;
+    border-radius: 8px;
   }
 }
 
